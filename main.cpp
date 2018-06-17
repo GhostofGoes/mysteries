@@ -1,13 +1,5 @@
 #include <SDL.h>
 
-#include <functional>
-#include <memory>
-#include <string>
-
-namespace mysteries {
-
-}
-
 int main(int argc, char** argv)
 {
     if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO)) {
