@@ -7,7 +7,7 @@ int main(int argc, char** argv)
         return 1;
     }
 
-    auto window = SDL_CreateWindow("Mysteries", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 0, 0, 0);
+    auto window = SDL_CreateWindow("Mysteries", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 0, 0, SDL_WINDOW_FULLSCREEN_DESKTOP);
 
     if (window == nullptr) {
         SDL_Log("SDL_CreateWindow failed: %s\n", SDL_GetError());
@@ -20,6 +20,15 @@ int main(int argc, char** argv)
         return 1;
     }
 
+    SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "linear");
+
+    SDL_RenderSetLogicalSize(renderer, 1280, 720);
+
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+    SDL_RenderClear(renderer);
+    SDL_RenderPresent(renderer);
+
+    SDL_Delay(3000);
     /* TODO, as they say. */
 
     SDL_DestroyRenderer(renderer);
